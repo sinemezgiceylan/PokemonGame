@@ -6,6 +6,6 @@ public enum TypeEnum {
     WATER,
     GRASS,
     ELECTRICY,
-    WING,
+    WIND,
     EARTH;
 }

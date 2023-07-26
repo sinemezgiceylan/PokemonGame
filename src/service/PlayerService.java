@@ -19,7 +19,7 @@ public class PlayerService {
 
         Scanner input = new Scanner(System.in);
 
-        // ----------------  Player1 oluşturuldu. ------------------
+        // ----------------  Player oluşturuldu. ------------------
 
         System.out.println("Pokemon Oyununa Hoşgeldin!\nAdınızı giriniz: ");
         String playerName = input.nextLine();

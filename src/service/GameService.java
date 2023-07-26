@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class GameService {
 
+    WeatherService weatherService = new WeatherService();
+
     public void attack(Players attacker, Players defender, boolean isPokemonSpecialAttack, boolean isCharSpecialAttack) {
 
         Pokemon attackingPokemon = attacker.getCharacter().getPokemonArrayList().get(0);
@@ -76,7 +78,6 @@ public class GameService {
 
         if (select == 1) {
             attack(player1, player2, false, false);
-
         } else if (select == 2) {
             attack(player1, player2, true, false);
         } else if (select == 3) {
@@ -96,10 +97,10 @@ public class GameService {
         System.out.println("Oyun başlıyor...");
 
         if (index == 1) {
-            System.out.println("Oyuna " + player1 + " başlıyor.");
+            System.out.println("Oyuna " + player1.getName() + " başlıyor.");
             attackChoice(player1, player2);
         } else {
-            System.out.println("Oyuna " + player2 + " başlıyor ");
+            System.out.println("Oyuna " + player2.getName() + " başlıyor ");
             attackChoice(player2, player1);
         }
 
