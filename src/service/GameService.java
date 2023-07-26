@@ -1,6 +1,11 @@
 package service;
+
 import model.Players;
 import model.Pokemon;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class GameService {
 
@@ -51,7 +56,6 @@ public class GameService {
     }
 
     public boolean healthCheck(Players player) {
-
         if (player.getCharacter().getPokemonArrayList().get(0).getHealth() > 0) {
             System.out.println(player.toString());
             System.out.println("Oyun devam ediyor.");
@@ -62,4 +66,45 @@ public class GameService {
             return false;
         }
     }
+
+    public void attackChoice(Players player1, Players player2) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Saldırınızı seçiniz: ");
+        System.out.println("1: Normal saldırı\n2: Pokemon Saldırısı\n3: Karakter Saldırısı");
+        int select = input.nextInt();
+
+        if (select == 1) {
+            attack(player1, player2, false, false);
+
+        } else if (select == 2) {
+            attack(player1, player2, true, false);
+        } else if (select == 3) {
+            attack(player1, player2, false, true);
+        } else {
+            System.out.println("Geçersiz sayı girildi!");
+        }
+
+    }
+
+    // Oyuna hangi oyuncunun başlayacağına karar verildi.
+    public void startingPlayer(Players player1, Players player2) {
+
+        Random randomNumber = new Random();
+        int index = randomNumber.nextInt(3);
+
+        System.out.println("Oyun başlıyor...");
+
+        if (index == 1) {
+            System.out.println("Oyuna " + player1 + " başlıyor.");
+            attackChoice(player1, player2);
+        } else {
+            System.out.println("Oyuna " + player2 + " başlıyor ");
+            attackChoice(player2, player1);
+        }
+
+    }
+
+
+
 }

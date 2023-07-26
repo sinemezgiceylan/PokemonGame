@@ -19,29 +19,31 @@ public class Main {
 
         // Load Character
         ArrayList<model.Character> characterList = loadService.loadCharacter();
-        System.out.println("-----Characters-----");
-        for (Character character : characterList) {
-            System.out.println(character.toString());
-        }
 
         // Load Pokemon
         ArrayList<Pokemon> pokemonList = loadService.loadPokemons();
-        System.out.println("-----Pokemon-----");
-        for (Pokemon pokemon : pokemonList) {
-            System.out.println(pokemon.toString());
+
+
+        //gameService.attack(player1, player2, true, true);
+
+        //gameService.healthCheck(player2);
+
+        Players player1 = playerService.createPlayer(characterList, pokemonList);
+        System.out.println("1. oyuncu oluşturuldu.\n" + player1.toString());
+
+        Players player2 = playerService.createPlayer(characterList, pokemonList);
+        System.out.println("2. oyuncu oluşturuldu.\n" + player2.toString());
+
+        // Başlangıç oyuncusu seçildi.
+
+        if (gameService.healthCheck(player1) && gameService.healthCheck(player2)) {
+            gameService.startingPlayer(player1, player2);
+            System.out.println(player1.toString());
+            System.out.println(player2.toString());
         }
 
-        characterList.get(0).getPokemonArrayList().add(pokemonList.get(0));
-        characterList.get(1).getPokemonArrayList().add(pokemonList.get(1));
 
-        Players player1 = playerService.createPlayer("Tuğçe", characterList.get(0));
-        Players player2 = playerService.createPlayer("Hasan", characterList.get(1));
 
-        gameService.attack(player1, player2, true, true);
-
-        gameService.healthCheck(player2);
-
-        
 
 
 
