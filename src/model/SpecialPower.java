@@ -40,10 +40,8 @@ public class SpecialPower {
 
     @Override
     public String toString() {
-        return "SpecialPower{" +
-                "name='" + name + '\'' +
-                ", extraDamage=" + extraDamage +
-                ", remainRight=" + remainRight +
-                '}';
+        return "Özel Güç" + '\n'
+                + "Extra güç : " + extraDamage + '\n'
+                + "Kalan hak : " + remainRight;
     }
 }

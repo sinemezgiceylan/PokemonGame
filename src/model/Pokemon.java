@@ -12,12 +12,15 @@ public class Pokemon {
 
     private SpecialPower specialPower;
 
-    public Pokemon(String name, int health, int damage, TypeEnum typeEnum, SpecialPower specialPower) {
+    private int maxHealth;
+
+    public Pokemon(String name, int health, int damage, TypeEnum typeEnum, SpecialPower specialPower, int maxHealth) {
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.typeEnum = typeEnum;
         this.specialPower = specialPower;
+        this.maxHealth = maxHealth;
     }
 
     public String getName() {
@@ -60,6 +63,14 @@ public class Pokemon {
         this.specialPower = specialPower;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
     public int specialAttack() {
         if (this.specialPower.getRemainRight() > 0) {
             this.specialPower.setRemainRight(this.specialPower.getRemainRight() - 1);
@@ -72,11 +83,9 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", damage=" + damage +
-                ", typeEnum=" + typeEnum +
-                '}';
+        return "Adı : " + name + '\n'
+                + "Sağlığı : " + health + '\n'
+                + "Gücü : " + damage + '\n'
+                + "Tipi : " + typeEnum;
     }
 }

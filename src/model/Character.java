@@ -47,13 +47,8 @@ public class Character {
     }
 
 
-
     @Override
     public String toString() {
-        return "Character{" +
-                "name='" + name + '\'' +
-                ", specialPower=" + specialPower +
-                ", pokemonArrayList=" + pokemonArrayList +
-                '}';
+        return name + '\n' + pokemonArrayList.toString();
     }
 }

@@ -43,10 +43,7 @@ public class Players {
 
     @Override
     public String toString() {
-        return "Players{" +
-                "name='" + name + '\'' +
-                ", character=" + character +
-                ", isWinner=" + isWinner +
-                '}';
+        return "Oyuncu adı : " + name + '\n'
+                +"Karakter : " + character;
     }
 }

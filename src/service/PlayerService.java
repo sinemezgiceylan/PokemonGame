@@ -21,7 +21,7 @@ public class PlayerService {
 
         // ----------------  Player oluşturuldu. ------------------
 
-        System.out.println("Pokemon Oyununa Hoşgeldin!\nAdınızı giriniz: ");
+        System.out.println("Adınızı giriniz: ");
         String playerName = input.nextLine();
 
         // Karakterlerin listelenmesi.
@@ -43,9 +43,29 @@ public class PlayerService {
 
         characterList.get(playerCharacter - 1).getPokemonArrayList().add(pokemonList.get(playerPokemon - 1));
 
-
         Players player = createPlayer(playerName, characterList.get(playerCharacter - 1));
+
+        characterList.remove(playerCharacter - 1);
+        pokemonList.remove(playerPokemon - 1);
         return player;
+    }
+
+
+    // Oyuna hangi oyuncunun başlayacağına karar verildi.
+    public Players startingPlayer(Players player1, Players player2, int index) {
+
+        System.out.println("Oyun başlıyor...");
+
+        if (index == 1) {
+            System.out.println("Oyuna " + player1.getName() + " başlıyor.");
+            return player1;
+
+        } else {
+            System.out.println("Oyuna " + player2.getName() + " başlıyor ");
+            return player2;
+
+        }
+
     }
 
 }

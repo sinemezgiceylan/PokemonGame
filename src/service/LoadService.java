@@ -26,16 +26,17 @@ public class LoadService {
 
     }
 
+
     public ArrayList<Pokemon> loadPokemons(){
         SpecialPower electricity = new Electricity("Electricity", 3, 3);
         SpecialPower water = new Water("Water", 1, 3);
         SpecialPower fire = new Fire("Fire", 5, 3);
         SpecialPower wind = new Earth("Wind", 4, 3);
 
-        Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricity);
-        Pokemon pokemon2 = new Squirtle("Squirtle", 100, 8, TypeEnum.WATER, water);
-        Pokemon pokemon3 = new Charmander("Charmander", 100, 12, TypeEnum.FIRE, fire);
-        Pokemon pokemon4 = new Bulbasaur("Bulbasaur", 100, 7, TypeEnum.WIND, wind);
+        Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricity, 100);
+        Pokemon pokemon2 = new Squirtle("Squirtle", 100, 8, TypeEnum.WATER, water, 100);
+        Pokemon pokemon3 = new Charmander("Charmander", 100, 12, TypeEnum.FIRE, fire, 100);
+        Pokemon pokemon4 = new Bulbasaur("Bulbasaur", 100, 7, TypeEnum.WIND, wind, 100);
 
         ArrayList<Pokemon> pokemonList = new ArrayList<>();
         pokemonList.add(pokemon1);
@@ -44,6 +45,21 @@ public class LoadService {
         pokemonList.add(pokemon4);
 
         return pokemonList;
+    }
+
+    public Pokemon getWeakestPokemonForPlayer(ArrayList<Pokemon> pokemonList) {
+        if (pokemonList.isEmpty()) {
+            return null;
+        }
+
+        Pokemon weakestPokemon = pokemonList.get(0);
+
+        for (Pokemon pokemon : pokemonList) {
+            if (pokemon.getMaxHealth() < weakestPokemon.getMaxHealth()) {
+                weakestPokemon = pokemon;
+            }
+        }
+        return weakestPokemon;
     }
 
 
